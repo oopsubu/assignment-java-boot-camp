@@ -1,9 +1,10 @@
 package com.example.week1.product;
 
-import com.example.week1.discount.Discount;
-import com.example.week1.order.OrderItems;
+import com.example.week1.discount.DiscountResponse;
+import com.example.week1.order.OrderItemsResponse;
+import com.example.week1.shopping.CartItemResponse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
 
 public class ProductResponse {
@@ -15,16 +16,27 @@ public class ProductResponse {
 	private Timestamp createdAt;
 	private Timestamp modifiedAt;
 	private Timestamp deletedAt;
-	private ProductCategory productCategory;
-	private ProductInventory productInventory;
-	private OrderItems product;
-	private Discount discount;
+	private ProductCategoryResponse productCategory;
+	private ProductInventoryResponse productInventory;
+	private OrderItemsResponse product;
+	private DiscountResponse discount;
+	@JsonIgnore
+	private CartItemResponse cartItem;
 
-	public OrderItems getProduct() {
+
+	public CartItemResponse getCartItem() {
+		return cartItem;
+	}
+
+	public void setCartItem(CartItemResponse cartItem) {
+		this.cartItem = cartItem;
+	}
+
+	public OrderItemsResponse getProduct() {
 		return product;
 	}
 
-	public void setProduct(OrderItems product) {
+	public void setProduct(OrderItemsResponse product) {
 		this.product = product;
 	}
 
@@ -32,15 +44,15 @@ public class ProductResponse {
 		this.productCategory = productCategory;
 	}
 
-	public ProductCategory getProductCategory(){
+	public ProductCategoryResponse getProductCategory(){
 		return productCategory;
 	}
 
-	public void setProductInventory(ProductInventory productInventory){
+	public void setProductInventory(ProductInventoryResponse productInventory){
 		this.productInventory = productInventory;
 	}
 
-	public ProductInventory getProductInventory(){
+	public ProductInventoryResponse getProductInventory(){
 		return productInventory;
 	}
 
@@ -100,11 +112,11 @@ public class ProductResponse {
 		return deletedAt;
 	}
 
-	public void setDiscount(Discount discount){
+	public void setDiscount(DiscountResponse discount){
 		this.discount = discount;
 	}
 
-	public Discount getDiscountId(){
+	public DiscountResponse getDiscountId(){
 		return discount;
 	}
 
