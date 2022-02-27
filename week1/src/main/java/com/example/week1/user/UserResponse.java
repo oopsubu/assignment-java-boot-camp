@@ -1,5 +1,7 @@
 package com.example.week1.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -10,14 +12,15 @@ import java.util.Set;
 public class UserResponse {
 	private int id;
 	private String username;
+	@JsonIgnore
 	private String password;
 	private String firstName;
 	private String lastName;
 	private String telephone;
 	private Timestamp createdAt;
 	private Timestamp modifiedAt;
-	private List<UserAddress> address;
-	private List<UserPayment> userPayments;
+	private List<UserAddressResponse> address;
+	private List<UserPaymentResponse> userPayments;
 
 	public void setPassword(String password){
 		this.password = password;
@@ -83,19 +86,19 @@ public class UserResponse {
 		return username;
 	}
 
-	public List<UserAddress> getAddress() {
+	public List<UserAddressResponse> getAddress() {
 		return address;
 	}
 
-	public void setAddress(List<UserAddress> address) {
+	public void setAddress(List<UserAddressResponse> address) {
 		this.address = address;
 	}
 
-	public List<UserPayment> getUserPayments() {
+	public List<UserPaymentResponse> getUserPayments() {
 		return userPayments;
 	}
 
-	public void setUserPayments(List<UserPayment> userPayments) {
+	public void setUserPayments(List<UserPaymentResponse> userPayments) {
 		this.userPayments = userPayments;
 	}
 
