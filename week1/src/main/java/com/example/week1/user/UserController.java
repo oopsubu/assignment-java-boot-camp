@@ -1,5 +1,6 @@
 package com.example.week1.user;
 
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,16 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<Optional<User>> getUserById(@PathVariable Integer id) {
+    public ResponseEntity<UserResponse> getUserById(@PathVariable Integer id) {
         log.info("/user/{}", id);
         Optional<User> user = userRepository.findById(id);
         if(user.isPresent()) {
-            return new ResponseEntity<>(user, HttpStatus.OK);
+            UserResponse userResponse = modelMapper.map(user.get(), UserResponse.class);
+            return new ResponseEntity<>(userResponse, HttpStatus.OK);
         }
         throw new UserNotFoundException("Not found User with id = " + id);
     }
