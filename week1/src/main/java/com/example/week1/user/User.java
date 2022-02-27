@@ -22,12 +22,10 @@ public class User{
 
 	@OneToMany(fetch = FetchType.EAGER,
 			mappedBy = "user")
-	@Fetch(value = FetchMode.SUBSELECT)
 	private Set<UserAddress> address;
 
 	@OneToMany(fetch = FetchType.EAGER,
 			mappedBy = "user")
-	@Fetch(value = FetchMode.SUBSELECT)
 	private Set<UserPayment> userPayments;
 
 	public void setPassword(String password){
