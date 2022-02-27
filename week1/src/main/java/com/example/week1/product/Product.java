@@ -39,7 +39,6 @@ public class Product{
 	private Discount discount;
 
 	@OneToOne(mappedBy = "product")
-	@JsonIgnore
 	private CartItem cartItem;
 
 	public OrderItems getProduct() {
