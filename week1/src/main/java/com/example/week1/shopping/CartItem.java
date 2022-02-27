@@ -4,7 +4,6 @@ import com.example.week1.product.Product;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 public class CartItem{
