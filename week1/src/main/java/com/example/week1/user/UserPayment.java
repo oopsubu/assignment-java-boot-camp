@@ -15,7 +15,6 @@ public class UserPayment{
 
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_id", nullable = false)
-	@JsonIgnore
 	private User user;
 
 	public User getUser() {
