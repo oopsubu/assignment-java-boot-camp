@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 public class UserResponse {
@@ -15,8 +16,8 @@ public class UserResponse {
 	private String telephone;
 	private Timestamp createdAt;
 	private Timestamp modifiedAt;
-	private Set<UserAddress> address;
-	private Set<UserPayment> userPayments;
+	private List<UserAddress> address;
+	private List<UserPayment> userPayments;
 
 	public void setPassword(String password){
 		this.password = password;
@@ -82,19 +83,19 @@ public class UserResponse {
 		return username;
 	}
 
-	public Set<UserAddress> getAddress() {
+	public List<UserAddress> getAddress() {
 		return address;
 	}
 
-	public void setAddress(Set<UserAddress> address) {
+	public void setAddress(List<UserAddress> address) {
 		this.address = address;
 	}
 
-	public Set<UserPayment> getUserPayments() {
+	public List<UserPayment> getUserPayments() {
 		return userPayments;
 	}
 
-	public void setUserPayments(Set<UserPayment> userPayments) {
+	public void setUserPayments(List<UserPayment> userPayments) {
 		this.userPayments = userPayments;
 	}
 

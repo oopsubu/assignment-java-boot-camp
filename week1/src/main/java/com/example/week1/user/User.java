@@ -1,7 +1,11 @@
 package com.example.week1.user;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,14 +20,14 @@ public class User{
 	private Timestamp createdAt;
 	private Timestamp modifiedAt;
 
-	@OneToMany(fetch = FetchType.LAZY,
-			cascade =  CascadeType.ALL,
+	@OneToMany(fetch = FetchType.EAGER,
 			mappedBy = "user")
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Set<UserAddress> address;
 
-	@OneToMany(fetch = FetchType.LAZY,
-			cascade =  CascadeType.ALL,
+	@OneToMany(fetch = FetchType.EAGER,
 			mappedBy = "user")
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Set<UserPayment> userPayments;
 
 	public void setPassword(String password){
