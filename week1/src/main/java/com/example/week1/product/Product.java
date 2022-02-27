@@ -2,7 +2,9 @@ package com.example.week1.product;
 
 import com.example.week1.discount.Discount;
 import com.example.week1.order.OrderItems;
+import com.example.week1.shopping.CartItem;
 import com.example.week1.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
@@ -36,12 +38,24 @@ public class Product{
 	@JoinColumn(name = "discount_id", nullable = true)
 	private Discount discount;
 
+	@OneToOne(mappedBy = "product")
+	@JsonIgnore
+	private CartItem cartItem;
+
 	public OrderItems getProduct() {
 		return product;
 	}
 
 	public void setProduct(OrderItems product) {
 		this.product = product;
+	}
+
+	public CartItem getCartItem() {
+		return cartItem;
+	}
+
+	public void setCartItem(CartItem cartItem) {
+		this.cartItem = cartItem;
 	}
 
 	public void setProductCategory(ProductCategory categoryId){
