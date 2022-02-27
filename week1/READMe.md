@@ -12,6 +12,10 @@
 * หลังจากระบุข้อมูลครบถ้วนแล้วลูกค้าสั่งซื้อสินค้า ระบบจะทำการหักเงินค่าสินค้าจากช่องทางที่ลูกค้าระบุและตัดสต๊อกสินค้า
 * ระบบแสดงรายการสั่งซื้อรวมถึงรายละเอียดการชำระเงินและจัดส่ง
 
+##Database Design
+
+<img src="https://user-images.githubusercontent.com/5071334/155875265-59cfab46-8fc6-43d9-aada-576e33870ad0.png" alt="ERD" title="Database Design">
+
 ##API
 <table role="table">
 <thead>
