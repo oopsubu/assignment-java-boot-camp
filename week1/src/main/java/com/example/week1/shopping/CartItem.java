@@ -12,6 +12,12 @@ public class CartItem{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@OneToOne(orphanRemoval = true)
+	@JoinTable(name = "cart_item_product",
+			joinColumns = @JoinColumn(name = "cart_item_null"),
+			inverseJoinColumns = @JoinColumn(name = "product_id"))
+	private Product product;
+
 	public int getQuantity() {
 		return quantity;
 	}
@@ -28,8 +34,13 @@ public class CartItem{
 	@JoinColumn(name = "session_id", nullable = false)
 	private ShoppingSession shoppingSession;
 
-	@OneToOne(mappedBy = "product", fetch = FetchType.EAGER)
-	private Product product;
+	public Product getCartItem() {
+		return product;
+	}
+
+	public void setCartItem(Product product) {
+		this.product = product;
+	}
 
 	public void setCreatedAt(Timestamp createdAt){
 		this.createdAt = createdAt;
@@ -61,14 +72,6 @@ public class CartItem{
 
 	public ShoppingSession getShoppingSession(){
 		return shoppingSession;
-	}
-
-	public void setProduct(Product product){
-		this.product = this.product;
-	}
-
-	public Product getProduct(){
-		return product;
 	}
 
 	@Override
