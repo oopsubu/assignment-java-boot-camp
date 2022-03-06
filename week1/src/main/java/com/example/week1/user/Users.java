@@ -1,15 +1,11 @@
 package com.example.week1.user;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 import java.util.Set;
 
 @Entity
-public class User{
+public class Users {
 	@Id
 	private int id;
 	private String username;
@@ -21,11 +17,11 @@ public class User{
 	private Timestamp modifiedAt;
 
 	@OneToMany(fetch = FetchType.EAGER,
-			mappedBy = "user")
+			mappedBy = "users")
 	private Set<UserAddress> address;
 
 	@OneToMany(fetch = FetchType.EAGER,
-			mappedBy = "user")
+			mappedBy = "users")
 	private Set<UserPayment> userPayments;
 
 	public void setPassword(String password){
@@ -60,7 +56,7 @@ public class User{
 		return telephone;
 	}
 
-	public User setId(int id){
+	public Users setId(int id){
 		this.id = id;
 		return null;
 	}
@@ -112,7 +108,7 @@ public class User{
 	@Override
  	public String toString(){
 		return 
-			"User{" + 
+			"Users{" +
 			"password = '" + password + '\'' + 
 			",last_name = '" + lastName + '\'' + 
 			",created_at = '" + createdAt + '\'' + 

@@ -1,7 +1,5 @@
 package com.example.week1.user;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 @Entity
@@ -15,14 +13,14 @@ public class UserPayment{
 
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+	private Users users;
 
-	public User getUser() {
-		return user;
+	public Users getUser() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(Users users) {
+		this.users = users;
 	}
 
 	public void setPaymentType(String paymentType){

@@ -1,7 +1,7 @@
 package com.example.week1.shopping;
 
 import com.example.week1.payment.PaymentDetail;
-import com.example.week1.user.User;
+import com.example.week1.user.Users;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -16,7 +16,7 @@ public class OrderDetails {
 
 	@OneToOne
 	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+	private Users users;
 
 	@OneToOne
 	@JoinColumn(name = "paymentDetail", nullable = false)
@@ -54,12 +54,12 @@ public class OrderDetails {
 		return modifiedAt;
 	}
 
-	public User getUser() {
-		return user;
+	public Users getUser() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(Users users) {
+		this.users = users;
 	}
 
 	public PaymentDetail getPaymentDetail() {
