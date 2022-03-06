@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 public class UserPayment{
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String paymentType;
 	private String provider;
