@@ -3,8 +3,15 @@ INSERT INTO product_category (id, created_at, desc, name) VALUES (2, CURRENT_TIM
 INSERT INTO product_inventory (id, created_at, quantity) VALUES (1, CURRENT_TIMESTAMP(), 8);
 INSERT INTO product_inventory (id, created_at, quantity) VALUES (2, CURRENT_TIMESTAMP(), 10);
 INSERT INTO product_inventory (id, created_at, quantity) VALUES (3, CURRENT_TIMESTAMP(), 13);
+INSERT INTO product_inventory (id, created_at, quantity) VALUES (4, CURRENT_TIMESTAMP(), 23);
+INSERT INTO product_inventory (id, created_at, quantity) VALUES (5, CURRENT_TIMESTAMP(), 4);
+INSERT INTO product_inventory (id, created_at, quantity) VALUES (6, CURRENT_TIMESTAMP(), 18);
 INSERT INTO product (id, created_at, desc, name, price, sku, discount_id, category_id, inventory_id) VALUES (1, CURRENT_TIMESTAMP(), 'รองเท้าผ้าใบสตรีทอันเป็นเอกลักษณ์', 'NMD R1 “TripleBlack”', 3990.00, '',  NULL, 1, 1);
 INSERT INTO product (id, created_at, desc, name, price, sku, discount_id, category_id, inventory_id) VALUES (2, CURRENT_TIMESTAMP(), 'รองเท้าผ้าใบแฟชั่น NMD R1 V2 “White GoldClub”', 'NMD R1 V2 “White GoldClub”', 3990.00, '',  NULL, 1, 3);
-INSERT INTO user (id, created_at, first_name, last_name, password, telephone, username) VALUES (1, CURRENT_TIMESTAMP(), 'ยิ่งเรียน', 'ยิ่งเก่ง', '7c4a8d09ca3762af61e59520943dc26494f8941b', '008-22536178', 'yingrian');
+INSERT INTO product (id, created_at, desc, name, price, sku, discount_id, category_id, inventory_id) VALUES (3, CURRENT_TIMESTAMP(), 'เสื้อวิ่ง adidas อาดีดาส UNLIMITED สีเทาฟ้า ของแท้จาก Shop 100% เสื้อยืด เบา ระบายเหงื่อดี วิ่ง เสื้อ Training”', 'เสื้อวิ่ง adidas อาดีดาส UNLIMITED', 990.00, '',  NULL, 1, 2);
+INSERT INTO product (id, created_at, desc, name, price, sku, discount_id, category_id, inventory_id) VALUES (4, CURRENT_TIMESTAMP(), 'รองเท้าผ้าใบ Adidas Superstar 36-44 flash express ตาข่ายระบายอากาศ รองเท้ากีฬา', 'รองเท้าผ้าใบ Adidas Superstar', 1990.00, '',  NULL, 1, 6);
+INSERT INTO product (id, created_at, desc, name, price, sku, discount_id, category_id, inventory_id) VALUES (5, CURRENT_TIMESTAMP(), 'รองเท้า COURTJAM BOUNCE รองเท้าเทนนิสที่ให้คุณพร้อมรับมือกับทุกจังหวะเกม ครองความเป็นเจ้าสนามไปพร้อมความสบาย', 'Adidas รองเท้าเทนนิสผู้ชาย CourtJam Bounce', 2990.00, '',  NULL, 1, 4);
+INSERT INTO product (id, created_at, desc, name, price, sku, discount_id, category_id, inventory_id) VALUES (6, CURRENT_TIMESTAMP(), 'ADIDAS FALCON W', 'ADIDAS FALCON Women รองเท้าวิ่งกีฬา CG6213', 1990.00, '',  NULL, 1, 5);
+INSERT INTO users (id, created_at, first_name, last_name, password, telephone, username) VALUES (1, CURRENT_TIMESTAMP(), 'ยิ่งเรียน', 'ยิ่งเก่ง', '7c4a8d09ca3762af61e59520943dc26494f8941b', '008-22536178', 'yingrian');
 INSERT INTO user_address (id, address_line1, address_line2, city, country, mobile, postal_code, telephone, user_id) VALUES (1, '111/11 อยู่เย็น', 'ลาดเอียง กลางทุ่งมหาสารคาม', 'ประเทศไทย', '008-22536178', '008-22536178', '10000', '02-002-0022', 1);
 INSERT INTO user_payment (id, account_no, expiry, payment_type, provider, user_id) VALUES (1, '5411-0000-9999-7777', '20/12', 'credit card', 'some_bank', 1);
