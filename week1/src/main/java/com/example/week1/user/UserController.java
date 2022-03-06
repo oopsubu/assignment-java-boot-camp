@@ -26,11 +26,11 @@ public class UserController {
     @GetMapping("/user/{id}")
     public ResponseEntity<UserResponse> getUserById(@PathVariable Integer id) {
         log.info("/user/{}", id);
-        Optional<User> user = userRepository.findById(id);
+        Optional<Users> user = userRepository.findById(id);
         if(user.isPresent()) {
             UserResponse userResponse = modelMapper.map(user.get(), UserResponse.class);
             return new ResponseEntity<>(userResponse, HttpStatus.OK);
         }
-        throw new UserNotFoundException("Not found User with id = " + id);
+        throw new UserNotFoundException("Not found Users with id = " + id);
     }
 }

@@ -13,6 +13,6 @@ public class UserControllerAdvice {
     @ResponseBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public UserNotFoundResponse userNotFound(UserNotFoundException e) {
-        return new UserNotFoundResponse("User = " + e.getMessage() + " not found");
+        return new UserNotFoundResponse("Users = " + e.getMessage() + " not found");
     }
 }

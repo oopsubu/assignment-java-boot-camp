@@ -1,7 +1,6 @@
 package com.example.week1.shopping;
 
-import com.example.week1.product.ProductCategory;
-import com.example.week1.user.User;
+import com.example.week1.user.Users;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -17,7 +16,7 @@ public class ShoppingSession {
 
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+	private Users users;
 
 
 	public void setTotal(int total){
@@ -28,12 +27,12 @@ public class ShoppingSession {
 		return total;
 	}
 
-	public User getUser() {
-		return user;
+	public Users getUser() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(Users users) {
+		this.users = users;
 	}
 
 	public void setCreatedAt(Timestamp createdAt){
