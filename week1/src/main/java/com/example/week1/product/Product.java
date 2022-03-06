@@ -3,9 +3,6 @@ package com.example.week1.product;
 import com.example.week1.discount.Discount;
 import com.example.week1.order.OrderItems;
 import com.example.week1.shopping.CartItem;
-import com.example.week1.user.User;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
