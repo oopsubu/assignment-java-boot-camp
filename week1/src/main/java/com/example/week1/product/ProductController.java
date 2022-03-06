@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -20,9 +21,19 @@ public class ProductController {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    ProductService productService;
+
     @GetMapping("/product/list")
     public List<ProductResponse> getProducts(){
         List<ProductResponse> productList = productRepository.findAll().stream().map(post -> modelMapper.map(post, ProductResponse.class))
+                .collect(Collectors.toList());
+        return productList;
+    }
+
+    @GetMapping("/product/search")
+    public List<ProductResponse> getProducts(@RequestParam("criteria")String criteria){
+        List<ProductResponse> productList = productService.searchProductByName(criteria).stream().map(post -> modelMapper.map(post, ProductResponse.class))
                 .collect(Collectors.toList());
         return productList;
     }
