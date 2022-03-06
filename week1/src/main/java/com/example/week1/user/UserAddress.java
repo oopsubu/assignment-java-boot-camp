@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 public class UserAddress{
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String country;
 	private String addressLine2;
